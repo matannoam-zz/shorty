@@ -31,3 +31,11 @@ class ShortenerTests(TestCase):
         second_short_url = self.shortener.shorten(original_url)
 
         self.assertEqual(first_short_url, second_short_url)
+
+    def test_lengthen_short_url_returns_original_url(self):
+        original_url = 'http://www.google.com'
+        short_url = self.shortener.shorten(original_url)
+
+        long_url = self.shortener.lengthen(short_url)
+
+        self.assertEqual(long_url, original_url)
